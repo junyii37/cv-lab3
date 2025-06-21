@@ -22,7 +22,7 @@ unzip nerf_sythetic.zip
 cd ..
 ```
 
-或者从https://drive.google.com/file/d/1ztjSvKEP2M0nTv6xebmFrTKW7QRkvs2q/view?usp=sharing手动下载数据集，解压后放在新建的`data`目录下。
+或者从 https://drive.google.com/file/d/1ztjSvKEP2M0nTv6xebmFrTKW7QRkvs2q/view?usp=sharing 手动下载数据集，解压后放在新建的`data`目录下。
 
 **模型下载**
 
@@ -32,7 +32,7 @@ cd ..
 wget https://drive.google.com/file/d/17OA8q9XNlsp0hG5-Wq4Tn97c4PS7B0Sx/view?usp=drive_link
 ```
 
-或者手动从https://drive.google.com/file/d/17OA8q9XNlsp0hG5-Wq4Tn97c4PS7B0Sx/view?usp=drive_link下载模型文件`tensorf_lego_VM.th`
+或者手动从 https://drive.google.com/file/d/17OA8q9XNlsp0hG5-Wq4Tn97c4PS7B0Sx/view?usp=drive_link 下载模型文件`tensorf_lego_VM.th`
 
 ### 1.2 环境配置
 
