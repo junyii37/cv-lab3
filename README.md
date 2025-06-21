@@ -2,15 +2,68 @@
 
 ## Task 1
 
+注：该任务所有的操作需要在`TensoRF`目录下进行：
 
+```
+cd TensoRF
+```
 
-#############################################################################################
+### 1.1 数据和模型准备
 
-**TODO**
+**数据集下载**
 
-#############################################################################################
+你可以在终端执行以下代码：
 
+```
+mkdir data
+cd data
+wget https://drive.google.com/file/d/1ztjSvKEP2M0nTv6xebmFrTKW7QRkvs2q/view?usp=sharing
+unzip nerf_sythetic.zip
+cd ..
+```
 
+或者从https://drive.google.com/file/d/1ztjSvKEP2M0nTv6xebmFrTKW7QRkvs2q/view?usp=sharing手动下载数据集，解压后放在新建的`data`目录下。
+
+**模型下载**
+
+你可以使用：
+
+```
+wget https://drive.google.com/file/d/17OA8q9XNlsp0hG5-Wq4Tn97c4PS7B0Sx/view?usp=drive_link
+```
+
+或者手动从https://drive.google.com/file/d/17OA8q9XNlsp0hG5-Wq4Tn97c4PS7B0Sx/view?usp=drive_link下载模型文件`tensorf_lego_VM.th`
+
+### 1.2 环境配置
+
+你可以直接在终端执行：
+
+```
+conda create -n TensoRF python=3.8
+conda activate TensoRF
+pip install torch torchvision
+pip install tqdm scikit-image opencv-python configargparse lpips imageio-ffmpeg kornia lpips tensorboard
+```
+
+### 1.3 训练
+
+如果你想从头训练模型，只需要简单输入：
+
+```
+python train.py --config configs/lego.txt
+```
+
+完整训练过程在一张NVIDIA A100-SXM4-80GB上约耗时13分钟。训练完成后，你可以在`log/tensorf_lego_VM`下找到模型文件、tensorboard日志文件与可视化结果。
+
+### 1.4 渲染
+
+要查看我们训练好的模型在测试集上的渲染效果，可以使用：
+
+```
+python train.py --config configs/lego.txt --ckpt ./tensorf_lego_VM.th --render_only 1 --render_test 1 
+```
+
+渲染完成后，`TensoRF`目录下会出现`tensor_lego_VM/imgs_test_all`文件夹，其中包含了（1）测试集的渲染图像`xxx.png`（2）渲染出的轨迹视频`video.mp4`和`depthvideo.mp4`（3）训练过程中的平均指标`mean.txt`，里面的四行数据分别对应PSNR，SSIM，LPIPS(AlexNet)和LPIPS(VDD-16)。
 
 
 
